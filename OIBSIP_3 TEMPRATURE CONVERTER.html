@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Temperature Converter</title>
+    <style>
+      /* CSS Code */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      form {
+        margin-top: 50px;
+        display: inline-block;
+        text-align: left;
+      }
+
+      label {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        font-size: 18px;
+      }
+
+      select {
+        padding: 10px;
+        font-size: 18px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: lightblue;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .output {
+        margin-top: 50px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML Code -->
+    <h1>Temperature Converter</h1>
+    <form>
+      <label for="temp">Temperature:</label>
+      <input type="text" id="temp" name="temp">
+      <select id="unit">
+        <option value="celsius">°C</option>
+        <option value="fahrenheit">°F</option>
+      </select>
+      <button type="button" onclick="convertTemperature()">Convert</button>
+    </form>
+    <div class="output"></div>
+
+    <!-- JavaScript Code -->
+    <script>
+      function convertTemperature() {
+        const temp = document.querySelector("#temp").value;
+        const unit = document.querySelector("#unit").value;
+        const output = document.querySelector(".output");
+
+        if (unit === "celsius") {
+          output.innerHTML = `${temp}°C = ${(temp * 9 / 5 + 32).toFixed(2)}°F`;
+        } else {
+          output.innerHTML = `${temp}°F = ${((temp - 32) * 5 / 9).toFixed(2)}°C`;
+        }
+      }
+    </script>
+  </body>
+</html>
